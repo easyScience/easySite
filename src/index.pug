@@ -19,7 +19,7 @@ doctype html
 html(lang='en')
 
   head
-    
+
     title= _CONFIG.tool.poetry.name
     meta(charset='utf-8')
     meta(http-equiv='x-ua-compatible' content='ie=edge')
@@ -27,7 +27,7 @@ html(lang='en')
     meta(name="description" content=_CONFIG.tool.poetry.description)
     meta(name="author" content="Andrew Sazonov")
     link(rel='shortcut icon' href='assets/favicon.ico' type='image/x-icon')
-    link(rel='stylesheet' type='text/css' href='css/aos.min.css')
+    link(rel='stylesheet' type='text/css' href='css/animate.min.css')
     link(rel='stylesheet' type='text/css' href='css/icons.min.css')
     link(rel='stylesheet' type='text/css' href='css/style.min.css')
     script(src='js/theme.js')
@@ -56,11 +56,11 @@ html(lang='en')
     //- Hero area
     section#_hero-section._border
       div._section-inner
-        h1._hero-title(data-aos="fade-up" data-aos-delay="300")!= md(_BODY.hero.title)
-        p._hero-description(data-aos="fade-up" data-aos-delay="400")!= md(_BODY.hero.description)
-        div._hero-version(data-aos="fade-up" data-aos-delay="500")
+        h1._hero-title.wow.fadeInUp(data-wow-delay="0.3s")!= md(_BODY.hero.title)
+        p._hero-description.wow.fadeInUp(data-wow-delay="0.4s")!= md(_BODY.hero.description)
+        div._hero-version.wow.fadeInUp(data-wow-delay="0.5s")
           p= `Version ${_CONFIG.tool.poetry.version} (${dateFormat(_CONFIG.release.date_for_qtifw, "d mmm yyyy")})`
-        div._hero-download-buttons(data-aos="fade-up" data-aos-delay="600")
+        div._hero-download-buttons.wow.fadeInUp(data-wow-delay="0.6s")
           each item in _BODY.hero.downloads
             a._hero-download-button(href=item.url)
               i(class='text-3xl' class=item.icon)
@@ -68,14 +68,14 @@ html(lang='en')
                 div(class='text-lg') Download for
                 div(class='text-3xl -mt-2 font-bold')= item.os
         div._hero-image-container
-          div(class='absolute left-0 right-0 hidden md:block h-5/6 -mx-6 bg-gray-200 dark:bg-gray-600 rounded-3xl shadow-lg' data-aos="fade-left" data-aos-delay="1300")
-          div(class='absolute left-0 right-0 hidden md:block h-4/5 -mx-6' data-aos="fade-right" data-aos-delay="1300")
+          div.wow.fadeInLeft(class='absolute left-0 right-0 hidden md:block h-5/6 -mx-6 bg-gray-200 dark:bg-gray-600 rounded-3xl shadow-lg' data-wow-delay="1.1s")
+          div.wow.fadeInRight(class='absolute left-0 right-0 hidden md:block h-4/5 -mx-6' data-wow-delay="1.1s")
             div(class='w-full h-full mt-3 rounded-3xl shadow-lg bg-gradient-to-br from-blue-500 to-blue-600 transform -rotate-1 lg:-rotate-2')
           video#_hero-video(class='invisible' muted='muted' controls='controls' preload='auto' poster='assets/img/hero_light.png')
             source(src='assets/video/hero.webm' type='video/webm')
             source(src='assets/video/hero.ogg' type='video/ogg')
             source(src='assets/video/hero.mp4' type='video/mp4')
-          #_hero-poster-container(data-aos="fade-up" data-aos-delay="700")
+          #_hero-poster-container.wow.fadeInUp(data-wow-delay="0.7s")
             img#_hero-poster(class='visible' src='assets/img/hero_dark.png' alt='')
             button#_hero-play-button.visible
               i.ml-2.icon-play
@@ -83,10 +83,10 @@ html(lang='en')
     //- Features section
     section#_features._bg-alternate._border
       div._section-inner
-        h2._section-title(data-aos="fade-down" data-aos-delay="300") Features
+        h2._section-title.wow.fadeInUp(data-wow-delay="0.3s") Features
         div(class='flex flex-wrap sm:mt-5')
           each item, index in _BODY.features
-            div._feature-container(data-aos=(index % 2) ? "fade-left" : "fade-right" data-aos-delay="400")
+            div._feature-container(class=(index % 2) ? "wow fadeInRight" : "wow fadeInLeft" data-wow-delay="0.4s")
               i(class=item.icon)
               h3!= md(item.title)
               p!= md(item.description)
@@ -94,20 +94,20 @@ html(lang='en')
     //- Contact section
     section#_contact
       div._section-inner
-        h2._section-title(data-aos="fade-down" data-aos-delay="300") Get in touch
+        h2._section-title.wow.fadeInUp(data-wow-delay="0.3s") Get in touch
         div(class='flex flex-wrap items-end sm:mt-5')
           //- Description
           div(class='w-full lg:w-1/2 mb-5 lg:mb-0')
             div(class='flex flex-wrap')
               each item in _BODY.contact
-                div._feature-container(class='w-full sm:w-5/6 mt-5' data-aos="fade-right" data-aos-delay="400")
+                div._feature-container.wow.fadeInLeft(class='w-full sm:w-5/6 mt-5' data-wow-delay="0.4s")
                   i(class=item.icon)
                   h3!= md(item.title)
                   p!= md(item.description)
                   //-p!= md(item.description.replace(/\${contactEmail}/g, contactEmail).replace(/\${githubUrl}/g, githubUrl))
           //- Contact form
-          div(class='.w-full lg:w-1/2')
-            div(class='mt-6 lg:mr-0 lg:ml-3' data-aos="fade-left" data-aos-delay="400")
+          div(class='w-full lg:w-1/2')
+            div.wow.fadeInRight(class='mt-6 lg:mr-0 lg:ml-3' data-wow-delay="0.4s")
               form#_contactForm(action='assets/php/contact.php' method='POST')
                 input#name._contact-form-field(type='text' name='name' placeholder='Name' required='required')
                 input#email._contact-form-field(type='email' name='email' placeholder='Email' required='required')
@@ -118,12 +118,12 @@ html(lang='en')
     //- Footer section
     section
       div(class='relative z-10 max-w-screen-lg xl:max-w-screen-xl mx-auto')
-        div._footer-hline         
+        div._footer-hline
         footer
-          div._footer-left-container(data-aos="fade-right" data-aos-delay="400")
+          div._footer-left-container.wow.fadeInUp(data-wow-delay="0.4s")
             i(class="text-3xl lg:-ml-2 icon-easydiffraction")
             span(class='pt-3 text-center')!= md(`&copy; ${dateFormat(_CONFIG.release.date_for_qtifw, "yyyy")} ${_FOOTER.app}, [easyscience](https://github.com/easyscience)`)
-          div._footer-right-container(data-aos="fade-left" data-aos-delay="400")
+          div._footer-right-container.wow.fadeInUp(data-wow-delay="0.4s")
             div._footer-right-links(class="lg:-mr-2")
               span!= md(_FOOTER.releases)
               span(class='mx-2') &middot;
@@ -141,6 +141,6 @@ html(lang='en')
           img(class='relative h-20 w-20' src='assets/img/logo.svg')
 
     //- Scripts
-    script(src='js/aos.min.js')
+    script(src='js/wow.min.js')
     script(src='js/contact.js')
     script(src='js/main.js')
