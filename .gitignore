@@ -1,5 +1,14 @@
+# macOS
 .DS_Store
+
+# Pinegrow
+pinegrow.json
+_pgbackup
+
+# npm
 node_modules/
+
+# misc
 public/
 src/copy/assets
 src/css/tailwind/style.css
