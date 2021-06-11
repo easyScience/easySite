@@ -1,7 +1,6 @@
 {
   "name": "easysite",
-  "version": "0.0.2",
-  "private": true,
+  "version": "0.0.3",
   "license": "MIT",
   "author": "Andrew Sazonov",
   "description": "Website template for libraries and applications in the easyScience universe",
