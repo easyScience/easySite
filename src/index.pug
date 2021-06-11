@@ -38,7 +38,7 @@ html(lang='en')
     header#_header
       nav
         a._nav-logo-container(href='#')
-          img(class='inline-block h-8 sm:h-9 -mt-1' src='assets/img/logo.svg')
+          img(class='inline-block h-8 sm:h-9 -mt-1' src='assets/img/logo.svg' alt='')
           span(class='ml-2')!= md(`easy**${textCase.lowerCase(_TECHNIQUE)}**`)
         div
           ul._nav-items
@@ -138,7 +138,7 @@ html(lang='en')
       span(class='relative block top-1/2 mx-auto text-blue-500')
         span(class='flex items-center justify-center')
           span(class='absolute h-20 w-20 rounded-full bg-blue-500 animate-ping')
-          img(class='relative h-20 w-20' src='assets/img/logo.svg')
+          img(class='relative h-20 w-20' src='assets/img/logo.svg' alt='')
 
     //- Scripts
     script(src='js/wow.min.js')
