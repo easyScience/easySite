@@ -1,0 +1,7 @@
+.DS_Store
+node_modules/
+public/
+src/copy/assets
+src/css/tailwind/style.css
+package-lock.json
+project.json
