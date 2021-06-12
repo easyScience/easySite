@@ -122,7 +122,7 @@ nav {
 }
 
 ._hero-download-button {
-  @apply w-full md:w-56 bg-gray-200 dark:bg-gray-900 text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 leading-6 py-2 sm:px-6 border border-gray-300 dark:border-black rounded-xl flex items-center justify-center text-4xl space-x-1 sm:space-x-2 focus:outline-none transition-colors duration-500;
+  @apply w-full md:w-56 bg-gray-200 dark:bg-gray-900 text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 leading-6 py-2 sm:px-6 border border-gray-300 dark:border-black rounded-xl flex items-center justify-center space-x-3 focus:outline-none transition-colors duration-500;
 }
 
 ._hero-image-container {
