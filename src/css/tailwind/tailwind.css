@@ -192,7 +192,7 @@ footer {
 }
 
 ._footer-right-links {
-  @apply inline-block pt-3 lg:pt-0 mx-auto lg:mx-0 lg:ml-auto text-lg text-gray-500 dark:text-gray-500 transition duration-500;
+  @apply flex justify-center items-center space-x-3 pt-3 lg:pt-0 mx-auto lg:mx-0 lg:ml-auto text-lg text-gray-500 dark:text-gray-500 transition duration-500;
 }
 
 ._footer-right-design {

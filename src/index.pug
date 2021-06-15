@@ -121,14 +121,17 @@ html(lang='en')
         div._footer-hline
         footer
           div._footer-left-container.wow.fadeInUp(data-wow-delay="0.4s")
-            i(class="text-3xl lg:-ml-2 icon-easydiffraction")
-            span(class='pt-3 text-center')!= md(`&copy; ${dateFormat(_CONFIG.release.date_for_qtifw, "yyyy")} ${_FOOTER.app}, [easyscience](https://github.com/easyscience)`)
+            a(class='text-3xl' href=_FOOTER.url)
+              i(class=_FOOTER.icon)
+            span(class='pt-3 text-center')!= md(`&copy; ${dateFormat(_CONFIG.release.date_for_qtifw, "yyyy")} ${_FOOTER.app}`)
           div._footer-right-container.wow.fadeInUp(data-wow-delay="0.4s")
-            div._footer-right-links(class="lg:-mr-2")
+            div._footer-right-links
+              a(class='text-3xl' href="https://easyscience.software") #[i.icon-easyscience]
+              span &middot;
               span!= md(_FOOTER.releases)
-              span(class='mx-2') &middot;
+              span &middot;
               span!= md(_FOOTER.eula)
-              span(class='mx-2') &middot;
+              span &middot;
               a(class='text-3xl' href=_FOOTER.github) #[i.icon-github]
             div._footer-right-design
               span!= md(`Designed by [Andrew Sazonov](https://sazonov.org)`)
