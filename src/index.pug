@@ -12,7 +12,7 @@
 - const _BODY = yaml.load(fs.readFileSync(`../easy${_TECHNIQUE}Site/content/home.yaml`, 'utf-8'))
 - const _FOOTER = yaml.load(fs.readFileSync(`../easy${_TECHNIQUE}Site/content/footer.yaml`, 'utf-8'))
 
-- const md = function(s) { return marked(s).replace(/(^<p>|<\/p>$)/mg, '') }
+- const md = function(s) { return marked(s).replace(/(^<p>|<\/p>$)/mg, '').trim() }
 
 
 doctype html
@@ -139,18 +139,18 @@ html(lang='en')
         div._footer-hline
         footer
           div._footer-left-container.wow.fadeInUp(data-wow-delay="0.4s")
-            a(class='text-3xl' href=_FOOTER.url)
+            a(class='text-2xl' href=_FOOTER.url)
               i(class=_FOOTER.icon)
             span(class='pt-3 text-center')!= md(`&copy; ${dateFormat(_CONFIG.release.date_for_qtifw, "yyyy")} ${_FOOTER.app}`)
           div._footer-right-container.wow.fadeInUp(data-wow-delay="0.4s")
             div._footer-right-links
-              a(class='text-3xl' href="https://easyscience.software") #[i.icon-easyscience]
-              span &middot;
               span!= md(_FOOTER.releases)
               span &middot;
               span!= md(_FOOTER.eula)
               span &middot;
-              a(class='text-3xl' href=_FOOTER.github) #[i.icon-github]
+              a(class='text-2xl' href=_FOOTER.github) #[i.icon-github]
+              span &middot;
+              a(class='text-2xl' href="https://easyscience.software") #[i.icon-easyscience]
             div._footer-right-design
               span!= md(`Designed by [Andrew Sazonov](https://sazonov.org)`)
 
