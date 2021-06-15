@@ -7,6 +7,7 @@
 
 - const _TECHNIQUE = textCase.capitalCase(require('../project.json').technique)
 - const _CONFIG = toml.parse(fs.readFileSync(`../easy${_TECHNIQUE}App/pyproject.toml`, 'utf-8'))
+- const _META = yaml.load(fs.readFileSync(`../easy${_TECHNIQUE}Site/content/meta.yaml`, 'utf-8'))
 - const _HEADER = yaml.load(fs.readFileSync(`../easy${_TECHNIQUE}Site/content/header.yaml`, 'utf-8'))
 - const _BODY = yaml.load(fs.readFileSync(`../easy${_TECHNIQUE}Site/content/home.yaml`, 'utf-8'))
 - const _FOOTER = yaml.load(fs.readFileSync(`../easy${_TECHNIQUE}Site/content/footer.yaml`, 'utf-8'))
@@ -20,16 +21,32 @@ html(lang='en')
 
   head
 
-    title= _CONFIG.tool.poetry.name
+    //- Primary Meta Tags
+    title= _META.title
     meta(charset='utf-8')
     meta(http-equiv='x-ua-compatible' content='ie=edge')
     meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover')
-    meta(name="description" content=_CONFIG.tool.poetry.description)
+    meta(name="description" content=_META.description)
     meta(name="author" content="Andrew Sazonov")
+    //- Open Graph / Facebook
+    meta(property="og:type" content="website")
+    meta(property="og:url" content=_META.url)
+    meta(property="og:title" content=_META.title)
+    meta(property="og:description" content=_META.description)
+    meta(property="og:image" content="assets/img/card.png")
+    //- Twitter
+    meta(property="twitter:card" content="summary_large_image")
+    meta(property="twitter:url" content=_META.url)
+    meta(property="twitter:title" content=_META.title)
+    meta(property="twitter:description" content=_META.description)
+    meta(property="twitter:image" content="assets/img/card.png")
+    //- Icon
     link(rel='shortcut icon' href='assets/favicon.ico' type='image/x-icon')
+    //- CSS
     link(rel='stylesheet' type='text/css' href='css/animate.min.css')
     link(rel='stylesheet' type='text/css' href='css/icons.min.css')
     link(rel='stylesheet' type='text/css' href='css/style.min.css')
+    // JS
     script(src='js/theme.js')
 
   body
