@@ -21,13 +21,17 @@ html(lang='en')
 
   head
 
-    //- Primary Meta Tags
-    title= _META.title
     meta(charset='utf-8')
     meta(http-equiv='x-ua-compatible' content='ie=edge')
     meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover')
-    meta(name="description" content=_META.description)
     meta(name="author" content="Andrew Sazonov")
+    //- Primary Meta Tags
+    title= _META.title
+    meta(name="description" content=_META.description)
+    //- Google / Search Engine Tags
+    meta(itemprop="name" content=_META.title)
+    meta(itemprop="description" content=_META.description)
+    meta(itemprop="image" content="assets/img/card.png")
     //- Open Graph / Facebook
     meta(property="og:type" content="website")
     meta(property="og:url" content=_META.url)
