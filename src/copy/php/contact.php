@@ -18,8 +18,7 @@
         }
 
         // Set the recipient email address.
-        // FIXME: Update this to your desired email address.
-        $recipient = "support@easydiffraction.org";
+        $recipient = "contact@easyscience.software";
 
         // Set the email subject.
         $subject = "New contact from $name";
