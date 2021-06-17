@@ -6,7 +6,7 @@
 - const textCase = require('text-case')
 
 - const _TECHNIQUE = textCase.capitalCase(require('../project.json').technique)
-- const _CONFIG = toml.parse(fs.readFileSync(`../easy${_TECHNIQUE}App/pyproject.toml`, 'utf-8'))
+//- const _CONFIG = toml.parse(fs.readFileSync(`../easy${_TECHNIQUE}App/pyproject.toml`, 'utf-8'))
 - const _META = yaml.load(fs.readFileSync(`../easy${_TECHNIQUE}Site/content/meta.yaml`, 'utf-8'))
 - const _HEADER = yaml.load(fs.readFileSync(`../easy${_TECHNIQUE}Site/content/header.yaml`, 'utf-8'))
 - const _BODY = yaml.load(fs.readFileSync(`../easy${_TECHNIQUE}Site/content/home.yaml`, 'utf-8'))
@@ -79,7 +79,7 @@ html(lang='en')
         p._hero-description.wow.fadeInUp(data-wow-delay="0.4s")!= md(_BODY.hero.description)
         if _BODY.hero.downloads
           div._hero-version.wow.fadeInUp(data-wow-delay="0.5s")
-            p= `Version ${_CONFIG.tool.poetry.version} (${dateFormat(_CONFIG.release.date_for_qtifw, "d mmm yyyy")})`
+            p= `Version ${_META.release.version} (${dateFormat(_META.release.date, "d mmm yyyy")})`
           div._hero-download-buttons.wow.fadeInUp(data-wow-delay="0.6s")
             each item in _BODY.hero.downloads
               a._hero-download-button(href=item.url)
@@ -147,7 +147,7 @@ html(lang='en')
           div._footer-left-container.wow.fadeInUp(data-wow-delay="0.4s")
             a(class='text-2xl' href=_FOOTER.url)
               i(class=_FOOTER.icon)
-            span(class='pt-3 text-center')!= md(`&copy; ${dateFormat(_CONFIG.release.date_for_qtifw, "yyyy")} ${_FOOTER.app}`)
+            span(class='pt-3 text-center')!= md(`&copy; ${dateFormat(_META.release.date, "yyyy")} ${_FOOTER.app}`)
           div._footer-right-container.wow.fadeInUp(data-wow-delay="0.4s")
             div._footer-right-links
               span!= md(_FOOTER.releases)
