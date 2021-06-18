@@ -113,8 +113,12 @@ nav {
   @apply max-w-screen-lg text-lg sm:text-2xl sm:leading-10 font-medium mt-8 xl:mt-10 text-gray-500 dark:text-gray-400;
 }
 
+._hero-description-extra {
+  @apply max-w-screen-lg text-lg sm:text-2xl sm:leading-10 font-medium mt-4 text-gray-500 dark:text-gray-400;
+}
+
 ._hero-version {
-  @apply text-lg sm:text-2xl text-left text-gray-500 dark:text-gray-400 mt-8 xl:mt-10;
+  @apply text-lg sm:text-2xl text-left text-gray-500 dark:text-gray-400 mt-2 sm:mt-4 md:mt-6 lg:mt-8;
 }
 
 ._hero-download-buttons {

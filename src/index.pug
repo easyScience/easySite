@@ -77,6 +77,8 @@ html(lang='en')
       div._section-inner
         h1._hero-title.wow.fadeInUp(data-wow-delay="0.3s")!= md(_BODY.hero.title)
         p._hero-description.wow.fadeInUp(data-wow-delay="0.4s")!= md(_BODY.hero.description)
+        if _BODY.hero.description_extra
+          p._hero-description-extra.wow.fadeInUp(data-wow-delay="0.4s")!= md(_BODY.hero.description_extra)
         if _BODY.hero.downloads
           div._hero-version.wow.fadeInUp(data-wow-delay="0.5s")
             p= `Version ${_META.release.version} (${dateFormat(_META.release.date, "d mmm yyyy")})`
