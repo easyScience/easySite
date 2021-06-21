@@ -58,6 +58,11 @@
     */
   }
 
+  // Elements
+  let _hero_video = document.getElementById('_hero-video') || document.createElement('video')
+  let _hero_poster = document.getElementById('_hero-poster') || document.createElement('img')
+  let _hero_play_button = document.getElementById('_hero-play-button') || document.createElement('button')
+
   // Theme switch
 
   if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -66,16 +71,16 @@
     if (window.pageYOffset > document.getElementById("_header").offsetTop) {
       document.getElementById("_header").classList.replace("_sticky_light", "_sticky_dark")
     }
-    document.getElementById('_hero-video').poster = "assets/img/hero_dark.png"
-    document.getElementById('_hero-poster').src = "assets/img/hero_dark.png"
+    _hero_video.poster = "assets/img/hero_dark.png"
+    _hero_poster.src = "assets/img/hero_dark.png"
   } else {
     document.getElementById('_dark_theme_icon').classList.replace('hidden', 'inline')
     document.getElementById('_light_theme_icon').classList.replace('inline', 'hidden')
     if (window.pageYOffset > document.getElementById("_header").offsetTop) {
       document.getElementById("_header").classList.replace("_sticky_dark", "_sticky_light")
     }
-    document.getElementById('_hero-video').poster = "assets/img/hero_light.png"
-    document.getElementById('_hero-poster').src = "assets/img/hero_light.png"
+    _hero_video.poster = "assets/img/hero_light.png"
+    _hero_poster.src = "assets/img/hero_light.png"
   }
 
   document.getElementById('_theme_switch_button').addEventListener('click', function() {
@@ -87,8 +92,8 @@
       if (window.pageYOffset > document.getElementById("_header").offsetTop) {
         document.getElementById("_header").classList.replace("_sticky_dark", "_sticky_light")
       }
-      document.getElementById('_hero-video').poster = "assets/img/hero_light.png"
-      document.getElementById('_hero-poster').src = "assets/img/hero_light.png"
+      _hero_video.poster = "assets/img/hero_light.png"
+      _hero_poster.src = "assets/img/hero_light.png"
     } else {
       localStorage.theme = 'dark'
       document.documentElement.classList.add('dark')
@@ -97,24 +102,24 @@
       if (window.pageYOffset > document.getElementById("_header").offsetTop) {
         document.getElementById("_header").classList.replace("_sticky_light", "_sticky_dark")
       }
-      document.getElementById('_hero-video').poster = "assets/img/hero_dark.png"
-      document.getElementById('_hero-poster').src = "assets/img/hero_dark.png"
+      _hero_video.poster = "assets/img/hero_dark.png"
+      _hero_poster.src = "assets/img/hero_dark.png"
     }
   })
 
   // Hero play
 
-  document.getElementById('_hero-play-button').addEventListener('click', function() {
-    document.getElementById('_hero-play-button').classList.replace('visible', 'invisible')
-    document.getElementById('_hero-poster').classList.replace('visible', 'invisible')
-    document.getElementById('_hero-video').classList.replace('invisible', 'visible')
-    document.getElementById('_hero-video').play()
+  _hero_play_button.addEventListener('click', function() {
+    _hero_play_button.classList.replace('visible', 'invisible')
+    _hero_poster.classList.replace('visible', 'invisible')
+    _hero_video.classList.replace('invisible', 'visible')
+    _hero_video.play()
   })
 
-  document.getElementById('_hero-video').onended = function() {
-    document.getElementById('_hero-play-button').classList.replace('invisible', 'visible')
-    document.getElementById('_hero-poster').classList.replace('invisible', 'visible')
-    document.getElementById('_hero-video').classList.replace('visible', 'invisible')
+  _hero_video.onended = function() {
+    _hero_play_button.classList.replace('invisible', 'visible')
+    _hero_poster.classList.replace('invisible', 'visible')
+    _hero_video.classList.replace('visible', 'invisible')
   }
 
 })()
