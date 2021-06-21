@@ -7,10 +7,10 @@
 
 - const _PROJECT = require('../project.json').project
 //- const _CONFIG = toml.parse(fs.readFileSync(`../${_PROJECT}App/pyproject.toml`, 'utf-8'))
-- const _META = yaml.load(fs.readFileSync(`../${_PROJECT}Site/content/meta.yaml`, 'utf-8'))
-- const _HEADER = yaml.load(fs.readFileSync(`../${_PROJECT}Site/content/header.yaml`, 'utf-8'))
-- const _BODY = yaml.load(fs.readFileSync(`../${_PROJECT}Site/content/home.yaml`, 'utf-8'))
-- const _FOOTER = yaml.load(fs.readFileSync(`../${_PROJECT}Site/content/footer.yaml`, 'utf-8'))
+- const _META = yaml.load(fs.readFileSync(`../${_PROJECT}Www/content/meta.yaml`, 'utf-8'))
+- const _HEADER = yaml.load(fs.readFileSync(`../${_PROJECT}Www/content/header.yaml`, 'utf-8'))
+- const _BODY = yaml.load(fs.readFileSync(`../${_PROJECT}Www/content/home.yaml`, 'utf-8'))
+- const _FOOTER = yaml.load(fs.readFileSync(`../${_PROJECT}Www/content/footer.yaml`, 'utf-8'))
 
 - const md = function(s) { return marked(s).replace(/(^<p>|<\/p>$)/mg, '').trim() }
 
