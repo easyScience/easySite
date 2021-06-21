@@ -5,12 +5,12 @@
 - const dateFormat = require('dateformat')
 - const textCase = require('text-case')
 
-- const _TECHNIQUE = textCase.capitalCase(require('../project.json').technique)
-//- const _CONFIG = toml.parse(fs.readFileSync(`../easy${_TECHNIQUE}App/pyproject.toml`, 'utf-8'))
-- const _META = yaml.load(fs.readFileSync(`../easy${_TECHNIQUE}Site/content/meta.yaml`, 'utf-8'))
-- const _HEADER = yaml.load(fs.readFileSync(`../easy${_TECHNIQUE}Site/content/header.yaml`, 'utf-8'))
-- const _BODY = yaml.load(fs.readFileSync(`../easy${_TECHNIQUE}Site/content/home.yaml`, 'utf-8'))
-- const _FOOTER = yaml.load(fs.readFileSync(`../easy${_TECHNIQUE}Site/content/footer.yaml`, 'utf-8'))
+- const _PROJECT = require('../project.json').project
+//- const _CONFIG = toml.parse(fs.readFileSync(`../${_PROJECT}App/pyproject.toml`, 'utf-8'))
+- const _META = yaml.load(fs.readFileSync(`../${_PROJECT}Site/content/meta.yaml`, 'utf-8'))
+- const _HEADER = yaml.load(fs.readFileSync(`../${_PROJECT}Site/content/header.yaml`, 'utf-8'))
+- const _BODY = yaml.load(fs.readFileSync(`../${_PROJECT}Site/content/home.yaml`, 'utf-8'))
+- const _FOOTER = yaml.load(fs.readFileSync(`../${_PROJECT}Site/content/footer.yaml`, 'utf-8'))
 
 - const md = function(s) { return marked(s).replace(/(^<p>|<\/p>$)/mg, '').trim() }
 
@@ -57,7 +57,7 @@ html(lang='en')
       nav
         a._nav-logo-container(href='#')
           img(class='inline-block h-8 sm:h-9 -mt-1' src='assets/img/logo.svg' alt='')
-          span(class='ml-2')!= md(`easy**${textCase.lowerCase(_TECHNIQUE)}**`)
+          span(class='ml-2')!= md(`easy**${textCase.lowerCase(_PROJECT).replace('easy', '')}**`)
         div
           ul._nav-items
             li._nav-item
@@ -103,7 +103,35 @@ html(lang='en')
               button#_hero-play-button(class=_BODY.hero.videos ? 'visible' : 'invisible')
                 i.ml-2.icon-play
 
-    //- Features section
+    //- Main features section
+    if _BODY.main_features
+      section._border
+        div._section-inner
+          h2._section-title.wow.fadeInUp(data-wow-delay="0.3s") Projects
+          each item, index in _BODY.main_features
+            div._main-feature-container(class=(index % 2) ? "flex-row" : "flex-row-reverse" class='flex flex-wrap-reverse items-center sm:mt-5')
+              //- Screenshot
+              div(class='w-full lg:w-1/2')
+                div(class='mt-6 lg:mr-0 lg:ml-3')
+                  div._hero-image-container
+                    div.wow.fadeInLeft(class='hidden md:block absolute left-0 right-0 h-5/6 -mx-6' data-wow-delay="0.9s")
+                      div(class='w-full h-full rounded-3xl shadow-lg bg-gradient-to-br bg-gray-200 dark:bg-gray-600' class=(index % 2) ? "mt-3 transform -rotate-1 lg:-rotate-2" : "mt-0")
+                    div.wow.fadeInRight(class='hidden md:block absolute left-0 right-0 h-4/5 -mx-6' data-wow-delay="0.9s")
+                      div(class='w-full h-full rounded-3xl shadow-lg bg-gradient-to-br from-blue-500 to-blue-600' class=(index % 2) ? "mt-0 transform rotate-1 lg:rotate-2" : "mt-3 transform -rotate-1 lg:-rotate-2")
+                    div._main-feature-poster-container.wow(class=(index % 2) ? "fadeInLeft" : "fadeInRight" data-wow-delay="0.6s")
+                      img._main-feature-poster(class='-mt-6 md:mt-0' src=item.img alt='')
+              //- Description
+              div(class='w-full lg:w-1/2 mb-5 lg:mb-0')
+                div(class='flex flex-wrap' class=(index % 2) ? "justify-end" : "justify-start")
+                  div._feature-container.wow(class='w-full sm:w-5/6 mt-5' class=(index % 2) ? "fadeInRight" : "fadeInLeft" data-wow-delay="0.6s")
+                    div._nav-logo-container(class="mb-6")
+                      img(class='h-8 sm:h-9 -mt-1' src=item.logo alt='')
+                      div(class='mt-5')!= md(item.title)
+                    each subitem in item.description
+                      p!= md(subitem.item)
+                    a(class='inline-block mt-5 text-xl' href=item.link_url) Visit #{item.link_text} #[span(class='fas fa-arrow-right')]
+    
+    //- Features section #[span(class='fas fa-arrow-right')]
     
     section#_features._bg-alternate._border
       div._section-inner
@@ -147,18 +175,21 @@ html(lang='en')
         div._footer-hline
         footer
           div._footer-left-container.wow.fadeInUp(data-wow-delay="0.4s")
-            a(class='text-2xl' href=_FOOTER.url)
-              i(class=_FOOTER.icon)
-            span(class='pt-3 text-center')!= md(`&copy; ${dateFormat(_META.release.date, "yyyy")} ${_FOOTER.app}`)
+            a(class='text-2xl' href=_FOOTER.project.url)
+              i(class=_FOOTER.project.icon)
+            span(class='pt-3 text-center')!= md(`&copy; ${_FOOTER.project.year} ${_FOOTER.project.title}`)
           div._footer-right-container.wow.fadeInUp(data-wow-delay="0.4s")
             div._footer-right-links
-              span!= md(_FOOTER.releases)
-              span &middot;
-              span!= md(_FOOTER.eula)
-              span &middot;
-              a(class='text-2xl' href=_FOOTER.github) #[i.icon-github]
-              span &middot;
-              a(class='text-2xl' href="https://easyscience.software") #[i.icon-easyscience]
+              each item, index in _FOOTER.links
+                if index
+                  span &middot;
+                if item.text
+                  a(href=item.url)= item.text
+                if item.icon
+                  a(class='text-2xl' href=item.url) #[i(class=item.icon)]
+              if _PROJECT !== 'easyScience'
+                span &middot;
+                a(class='text-2xl' href="https://easyscience.software") #[i.icon-easyscience]
             div._footer-right-design
               span!= md(`Designed by [Andrew Sazonov](https://sazonov.org)`)
 

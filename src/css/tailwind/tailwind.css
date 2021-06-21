@@ -78,7 +78,7 @@ nav {
 }
 
 ._nav-items {
-  @apply hidden md:inline-block align-middle flex justify-center items-center text-xl text-gray-500 dark:text-gray-500;
+  @apply hidden md:inline-block align-middle flex items-center justify-center text-xl text-gray-500 dark:text-gray-500;
 }
 
 ._nav-item {
@@ -130,7 +130,7 @@ nav {
 }
 
 ._hero-image-container {
-  @apply relative mt-8 md:mt-9 lg:mt-10 xl:mt-12 flex justify-center items-center;
+  @apply relative mt-8 md:mt-9 lg:mt-10 xl:mt-12 flex items-center justify-center;
 }
 
 #_hero-video {
@@ -149,7 +149,21 @@ nav {
   @apply absolute w-24 h-24 md:h-32 md:w-32 text-4xl md:text-5xl text-white dark:text-gray-900 flex items-center justify-center rounded-full bg-blue-600 hover:bg-blue-400 dark:bg-blue-400 dark:hover:bg-blue-500 shadow-2xl focus:outline-none;
 }
 
-/* Feature section */
+/* Main features section */
+
+._main-feature-container ~ ._main-feature-container {
+  @apply mt-2 md:mt-10 xl:mt-20;
+}
+
+._main-feature-poster-container {
+  @apply z-10 w-full h-full flex items-center justify-center;
+}
+
+._main-feature-poster {
+  @apply w-full h-full border border-gray-300 dark:border-gray-900 rounded-md shadow-2xl;
+}
+
+/* Features section */
 
 ._feature-container {
   @apply w-full sm:w-1/2 md:w-1/2 lg:w-1/2 mt-12 pr-12;
@@ -196,7 +210,7 @@ footer {
 }
 
 ._footer-right-links {
-  @apply flex justify-center items-center space-x-3 pt-3 lg:pt-0 mx-auto lg:mx-0 lg:ml-auto text-lg text-gray-500 dark:text-gray-500 transition duration-500;
+  @apply flex items-center justify-center space-x-3 pt-3 lg:pt-0 mx-auto lg:mx-0 lg:ml-auto text-lg text-gray-500 dark:text-gray-500 transition duration-500;
 }
 
 ._footer-right-design {
