@@ -3,6 +3,7 @@
   "use strict"
 
   // Scroll animation
+
   let wow = new WOW({
     boxClass:     'wow',      // animated element css class (default is wow)
     animateClass: 'animated', // animation css class (default is animated)
@@ -59,6 +60,7 @@
   }
 
   // Elements
+
   let _hero_video = document.getElementById('_hero-video') || document.createElement('video')
   let _hero_poster = document.getElementById('_hero-poster') || document.createElement('img')
   let _hero_play_button = document.getElementById('_hero-play-button') || document.createElement('button')

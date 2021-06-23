@@ -47,6 +47,7 @@ html(lang='en')
     link(rel='stylesheet' type='text/css' href='css/style.min.css')
     //- JS
     script(src='js/theme.js')
+    script(src='https://www.google.com/recaptcha/api.js?render=6LfjgU8bAAAAADn_z6MTsvSboq6oK8_5RD6CV2XI')
 
   body
 
@@ -161,11 +162,14 @@ html(lang='en')
           div(class='w-full lg:w-1/2')
             div.wow.fadeInRight(class='mt-6 lg:mr-0 lg:ml-3' data-wow-delay="0.4s")
               form#_contactForm(action='php/contact.php' method='POST')
+                input#token(type='hidden' name='token')
                 input#name._contact-form-field(type='text' name='name' placeholder='Name' required='required')
                 input#email._contact-form-field(type='email' name='email' placeholder='Email' required='required')
                 input#subject._contact-form-field(type='text' name='subject' placeholder='Subject' required='required')
                 textarea#message._contact-form-field(name='message' placeholder='Message' required='required' rows='5' style='resize:none')
                 button._contact-form-button(type='submit') Send Message
+              //- https://developers.google.com/recaptcha/docs/faq#id-like-to-hide-the-recaptcha-badge.-what-is-allowed
+              div._grecaptcha-branding!= md(`This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.`)
 
     //- Footer section
     
