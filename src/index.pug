@@ -68,8 +68,8 @@ html(lang='en')
               a(href='#_contact') Contact
           div._nav-buttons
             button#_theme_switch_button(type='button')
-              i#_dark_theme_icon(class='inline icon-moon')
-              i#_light_theme_icon(class='hidden icon-sun')
+              i#_dark_theme_icon(class='inline fas fa-moon')
+              i#_light_theme_icon(class='hidden fas fa-sun')
 
     //- Hero area
     
@@ -101,7 +101,7 @@ html(lang='en')
             div#_hero-poster-container.wow.fadeInUp(data-wow-delay="0.7s")
               img#_hero-poster(class='visible' alt='')
               button#_hero-play-button(class=_BODY.hero.videos ? 'visible' : 'invisible')
-                i.ml-2.icon-play
+                i(class='ml-2 fas fa-play')
 
     //- Main features section
     if _BODY.main_features
@@ -148,6 +148,7 @@ html(lang='en')
     section#_contact
       div._section-inner
         h2._section-title.wow.fadeInUp(data-wow-delay="0.3s") Get in touch
+        //- Main part
         div(class='flex flex-wrap items-end sm:mt-5')
           //- Description
           div(class='w-full lg:w-1/2 mb-5 lg:mb-0')
@@ -160,17 +161,20 @@ html(lang='en')
                   //-p!= md(item.description.replace(/\${contactEmail}/g, contactEmail).replace(/\${githubUrl}/g, githubUrl))
           //- Contact form
           div(class='w-full lg:w-1/2')
-            div.wow.fadeInRight(class='mt-6 lg:mr-0 lg:ml-3' data-wow-delay="0.4s")
+            div.wow.fadeInRight(class='mt-6' data-wow-delay="0.4s")
               form#_contactForm(action='php/contact.php' method='POST')
                 input#token(type='hidden' name='token')
                 input#name._contact-form-field(type='text' name='name' placeholder='Name' required='required')
                 input#email._contact-form-field(type='email' name='email' placeholder='Email' required='required')
                 input#subject._contact-form-field(type='text' name='subject' placeholder='Subject' required='required')
-                textarea#message._contact-form-field(name='message' placeholder='Message' required='required' rows='5' style='resize:none')
+                textarea#message._contact-form-field(name='message' placeholder='Message' required='required' rows='4' style='resize:none')
                 button._contact-form-button(type='submit') Send Message
-              //- https://developers.google.com/recaptcha/docs/faq#id-like-to-hide-the-recaptcha-badge.-what-is-allowed
-              //- Switch to https://www.hcaptcha.com/ ?
-              div._grecaptcha-branding!= md(`This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.`)
+        //- Capture branding
+        //- https://developers.google.com/recaptcha/docs/faq#id-like-to-hide-the-recaptcha-badge.-what-is-allowed
+        //- Switch to https://www.hcaptcha.com/ ?
+        div.wow.fadeInRight(class='flex flex-wrap justify-end' data-wow-delay="0.4s")
+          div(class='w-full lg:w-1/2')
+            div._grecaptcha-branding!= md(`This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.`)
 
     //- Footer section
     

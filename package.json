@@ -4,10 +4,9 @@
   "license": "MIT",
   "author": "Andrew Sazonov",
   "description": "Website template for libraries and applications in the easyScience universe",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/easyScience/easySite.git"
-  },
+  "repository": "https://github.com/easyScience/easySite.git",
+  "bugs": "https://github.com/easyScience/easySite/issues",
+  "homepage": "https://github.com/easyScience/easySite",
   "scripts": {
     "browsersync": "browser-sync start --directory --server ./public --files ./public/* --startPath index.html",
     "clean": "rimraf public/*",

@@ -16,7 +16,7 @@
 }
 
 ._grecaptcha-branding {
-  @apply mx-1 mt-3 text-gray-400 dark:text-gray-600;
+  @apply mx-1 lg:mx-1 mt-3 text-sm text-gray-400 dark:text-gray-600;
 }
 
 ._grecaptcha-branding a {
@@ -202,7 +202,7 @@ nav {
 }
 
 ._contact-form-button {
-  @apply inline-block w-full py-4 px-8 leading-none text-white bg-blue-600 hover:opacity-75 font-semibold rounded shadow;
+  @apply inline-block w-full py-4 px-8 leading-none text-lg text-white bg-blue-600 hover:opacity-75 font-semibold rounded shadow;
 }
 
 /* FOOTER */
