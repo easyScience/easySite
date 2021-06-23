@@ -99,7 +99,7 @@ html(lang='en')
                 each item in _BODY.hero.videos
                   source(src=item.video type=`video/${item.video.split('.').pop()}`)
             div#_hero-poster-container.wow.fadeInUp(data-wow-delay="0.7s")
-              img#_hero-poster(class='visible' alt='')
+              img#_hero-poster(class='visible' src='' alt='')
               button#_hero-play-button(class=_BODY.hero.videos ? 'visible' : 'invisible')
                 i(class='ml-2 fas fa-play')
 
