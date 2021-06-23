@@ -35,5 +35,16 @@ module.exports = {
   variants: {
     fill: ['hover', 'focus']
   },
-  plugins: []
+  babel: {
+    presets: [
+      [
+        "@babel/preset-env",
+        {
+          targets: {
+            node: "12.13.0"
+          }
+        }
+      ]
+    ]
+  }
 }
