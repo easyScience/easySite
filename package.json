@@ -38,6 +38,7 @@
     "pug": "^3.0.2",
     "pug-cli": "^1.0.0-alpha6",
     "replace-in-file": "^6.2.0",
+    "replaceall": "^0.1.6",
     "rimraf": "^3.0.2",
     "tailwindcss": "^2.2.4",
     "text-case": "^1.0.9",
