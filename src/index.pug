@@ -88,7 +88,7 @@ html(lang='en')
               a._hero-download-button(href=replaceall('$RELEASE_VERSION', _BODY.hero.release.version, item.url))
                 i(class='text-3xl' class=item.icon)
                 div(class='align-middle text-left')
-                  div(class='text-lg') Download for
+                  div(class='text-lg')= item.howto
                   div(class='text-3xl -mt-2 font-bold')= item.os
         if _BODY.hero.poster
           div._hero-image-container
